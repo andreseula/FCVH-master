@@ -1,0 +1,28 @@
+<div class="row" id="contenido"  ng-controller="NoticiasCtrl" >
+  <div class="col-md-7">
+    <h1><u>ULTIMAS NOTICIAS</u></h1>
+    <div ng-repeat="noticia in noticias">
+      <div class="card">
+        <img class="card-img-top" src="{{noticia.img}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{noticia.titulo}}</h4>
+          <p class="card-text">{{noticia.contenido}}</p>
+        </div>
+        <div class="card-footer">
+          {{noticia.autor}} - {{noticia.fecha}}
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div ng-include src="'template/slider.html'"></div><br>
+    <!--TEMPORIZADOR PARA EL SIGUIENTE PARTIDO-->
+    <div class="bg-black rounded text-medium text-center text-light padding timer">
+      <p><u>PROXIMO PARTIDO</u><br>
+        ESTRELLAS vs EL VILLA<br>
+        Estadio: ALBO DE JOVITA</p>
+        <p id="counter"></p>
+      </div>
+    </div>
+  </div>

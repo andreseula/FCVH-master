@@ -1,0 +1,39 @@
+
+    <div ng-controller="TablasCtrl" class="row" id="contenido">
+
+        <!-- MENU DE TABLA POSICIONES-->
+        <div class="col-xs-12 col-md-4">
+           <h3><u>TABLA DE POSICIONES</u></h3><br>
+            <div class="list-group" id="myList" role="tablist">
+                <a ng-repeat="categoria in datos" class="list-group-item list-group-item-action list-group-item-dark" data-toggle="list" data-target="#{{categoria.nombre}}" role="tab">{{categoria.nombre}}</a>
+            </div>
+        </div>
+        <!-- TABLA DE POSICIONES -->
+        <div class="col-xs-12 col-md-8" id="tabla">
+            <div class="tab-content">
+
+                <div ng-repeat="categoria in datos" class="tab-pane" id="{{categoria.nombre}}" role="tabpanel">
+                  <div class="wrapper">
+                    <div ng-repeat="tab in (categoria.tablas)">
+                      <p><u><strong>{{tab.titulo}}</strong></u></p>
+                      <table class="table table-striped table-dark" id="acrylic">
+                          <thead>
+                              <tr>
+                                  <th>Posicion</th> <th>Equipo</th> <th>Ptos</th>  <th>PG</th> <th>PE</th><th>PP</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                             <!-- NG-REPEAT PARA LAS TABLAS DE TABLAS.JSON-->
+                              <tr ng-repeat="pos in tab.pos">
+                                  <td>#{{pos.id}}</td> <td>{{pos.equipo}}</td> <td>{{pos.ptos}}</td>  <td>{{pos.pg}}</td> <td>{{pos.pe}}</td> <td>{{pos.pp}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+         <!--FIN DE LA TABLA-->
+    </div>

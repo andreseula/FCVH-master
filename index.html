@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="fcvhapp">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <a class="navbar-brand" href="#">F.C.V.H.</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div ng-controller="MenuCtrl" class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active ">
+          <li ng-repeat="item in items" ng-if="item.inmenu && item.pos == 'left'" class="text-uppercase nav-item"><a class="nav-link" ng-click="bajar(item.route)">{{item.title}}</a></li>
+        </li>
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0">
+        <li class="nav-item active">
+          <li ng-repeat="item in items" ng-if="item.inmenu && item.pos == 'right'" class="text-uppercase nav-item"><a class="nav-link" ng-click="bajar(item.route)">{{item.title}}</a></li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main role="main">
+    <div class="jumbotron bg-header text-light text-center">
+      <div class="container">
+        <h1 class="display-3">SITIO WEB OFICIAL</h1>
+        <img src="img/logos.png" class="logos">
+      </div>
+    </div>
+    <div id="page"class="container bg-white padding rounded">
+      <ng-view></ng-view>
+      <hr>
+    </div>
+  </main>
+  <div ng-include src="'template/pie.html'"></div>
+  <script src="js/angular.min.js" charset="utf-8"></script>
+  <script src="js/angular-route.min.js" charset="utf-8"></script>
+  <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+  <script src="js/jquery-ui.min.js" charset="utf-8"></script>
+  <script src="js/popper.min.js" ></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+</body>
+</html>
